@@ -1,0 +1,282 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-accent-400: #34d399;
+  --color-accent-500: #10b981;
+  --color-accent-600: #059669;
+  --color-energy-400: #fbbf24;
+  --color-energy-500: #f59e0b;
+  --color-fire-400: #f87171;
+  --color-fire-500: #ef4444;
+  --color-fire-600: #dc2626;
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #c7d2fe transparent;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+}
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.6); }
+  60% { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+@keyframes borderPulse {
+  0%, 100% { border-color: rgba(99, 102, 241, 0.3); }
+  50% { border-color: rgba(99, 102, 241, 0.8); }
+}
+@keyframes confetti1 {
+  0% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  100% { transform: translate(60px,-120px) rotate(360deg); opacity:0; }
+}
+@keyframes confetti2 {
+  0% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  100% { transform: translate(-50px,-100px) rotate(-360deg); opacity:0; }
+}
+@keyframes confetti3 {
+  0% { transform: translate(0,0) rotate(0deg); opacity:1; }
+  100% { transform: translate(40px,-80px) rotate(180deg); opacity:0; }
+}
+@keyframes successPing {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+  60% { transform: scale(1); }
+}
+
+/* ===== ANIMATION CLASSES ===== */
+.animate-fade-in-up { animation: fadeInUp 0.55s cubic-bezier(.21,1.02,.73,1) forwards; opacity: 0; }
+.animate-fade-in-down { animation: fadeInDown 0.5s cubic-bezier(.21,1.02,.73,1) forwards; opacity: 0; }
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+.animate-fade-in-scale { animation: fadeInScale 0.5s cubic-bezier(.21,1.02,.73,1) forwards; opacity: 0; }
+.animate-slide-in-left { animation: slideInLeft 0.5s cubic-bezier(.21,1.02,.73,1) forwards; opacity: 0; }
+.animate-slide-in-right { animation: slideInRight 0.5s cubic-bezier(.21,1.02,.73,1) forwards; opacity: 0; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-count-up { animation: count-up 0.5s ease-out forwards; }
+.animate-shimmer { animation: shimmer 2s linear infinite; background-size: 200% 100%; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 0.6s ease-in-out; }
+.animate-pop-in { animation: popIn 0.45s cubic-bezier(.21,1.02,.73,1) forwards; opacity: 0; }
+.animate-slide-up { animation: slideUp 0.5s cubic-bezier(.21,1.02,.73,1) forwards; }
+.animate-border-pulse { animation: borderPulse 2s ease-in-out infinite; }
+.animate-success-ping { animation: successPing 0.6s ease-in-out; }
+.animate-spin-slow { animation: spin 3s linear infinite; }
+.animate-heartbeat { animation: heartbeat 1.4s ease-in-out infinite; }
+
+.delay-0 { animation-delay: 0ms; }
+.delay-50 { animation-delay: 50ms; }
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-250 { animation-delay: 250ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-350 { animation-delay: 350ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-450 { animation-delay: 450ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* ===== INTERACTIVE CLASSES ===== */
+.clickable {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(.21,1.02,.73,1);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(0,0,0,0.1);
+}
+.clickable:active {
+  transform: translateY(0px) scale(0.97);
+  box-shadow: 0 2px 8px -2px rgba(0,0,0,0.1);
+}
+
+.clickable-sm {
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(.21,1.02,.73,1);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.clickable-sm:hover {
+  transform: translateY(-1px);
+}
+.clickable-sm:active {
+  transform: translateY(0px) scale(0.96);
+}
+
+.btn-bounce {
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(.21,1.02,.73,1);
+}
+.btn-bounce:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px -8px rgba(99, 102, 241, 0.4);
+}
+.btn-bounce:active {
+  transform: translateY(0px) scale(0.95);
+  box-shadow: 0 2px 10px -3px rgba(99, 102, 241, 0.3);
+}
+
+.card-hover {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(.21,1.02,.73,1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+}
+.card-hover:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -8px rgba(0,0,0,0.1);
+}
+
+/* Ripple effect */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+.ripple-container:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+/* Toast notification */
+.toast-enter {
+  animation: slideUp 0.4s cubic-bezier(.21,1.02,.73,1) forwards, fadeIn 0.3s ease-out forwards;
+}
+.toast-exit {
+  animation: fadeIn 0.25s ease-in reverse forwards;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s cubic-bezier(.21,1.02,.73,1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 50ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 150ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 250ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 350ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(9) { animation-delay: 450ms; }
+.stagger-children > *:nth-child(10) { animation-delay: 500ms; }
+
+/* Progress bar animation */
+.progress-animate {
+  transition: width 1.2s cubic-bezier(.21,1.02,.73,1);
+}
+
+/* Hover glow */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
